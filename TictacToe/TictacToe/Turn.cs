@@ -8,25 +8,17 @@ namespace TictacToe
 {
     class Turn
     {
-        public void MakeTurn() {
+        public int GetInput()
+        {
             Console.WriteLine("Player 1 choose your field!");
+            int input = Convert.ToInt32(Console.ReadLine());
 
-            try
-            {
-                string inputText = Console.ReadLine();
-                int playerInput = int.Parse(inputText);
+            // TODO: validate input must be number in range 1-9
+            // Console.WriteLine("Please enter number in range from 1 to 9!");
 
-                if (playerInput < 1 || playerInput > 9)
-                {
-                    throw new ArgumentException("Number is not in allowed range");
-                };
+            // TODO: validate already filled fields
 
-                Console.WriteLine($"Player entered: {playerInput}");
-            }
-            catch
-            {
-                Console.WriteLine("Please enter number in range from 1 to 9!");
-            }
+            return input;
         }
     }
 }

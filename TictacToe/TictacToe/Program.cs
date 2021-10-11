@@ -13,12 +13,16 @@ namespace TictacToe
             
             int turns = 0;
             int maxTurns = 9;
-            
+
+            // Print starting board
+            board.PrintBoard(); 
+
             while (turns <= maxTurns) {
                 // TODO: exit if someone won faster
 
+                var input = turn.GetInput();
+                board.SetFields(input, 'O');
                 board.PrintBoard();
-                turn.MakeTurn();
 
                 turns++;
             };
