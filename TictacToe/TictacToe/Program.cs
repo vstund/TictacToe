@@ -8,6 +8,9 @@ namespace TictacToe
         {
             Console.WriteLine("Let's play Tic Tac Toe.");
 
+            Player player1 = new Player("Player 1", Signs.O);
+            Player player2 = new Player("Player 2", Signs.X);
+
             Board board = new Board();
             Turn turn = new Turn();
             
@@ -20,8 +23,10 @@ namespace TictacToe
             while (turns <= maxTurns) {
                 // TODO: exit if someone won faster
 
-                var input = turn.GetInput();
-                board.SetFields(input, 'O');
+                Player player = turns % 2 == 0 ? player1 : player2;
+
+                var input = turn.GetInput(player);
+                board.SetFields(input, player);
                 board.PrintBoard();
 
                 turns++;

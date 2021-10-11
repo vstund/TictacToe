@@ -21,8 +21,10 @@ namespace TictacToe
                 };
         }
 
-        public void SetFields(int fieldNumber, char playerSign) // TODO: playerSign as separate class
-        { 
+        public void SetFields(int fieldNumber, Player player)
+        {
+            var playerSign = (char)player.Sign;
+
             switch (fieldNumber) 
             {
                 case 1: Fields[0, 0] = playerSign; break;
