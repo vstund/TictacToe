@@ -7,7 +7,7 @@ namespace TictacToe
         private char[,] Fields { get; set; }
 
         // This is constructor
-        public Board() 
+        public Board()
         {
             Fields = GetStartingFields();
         }
@@ -25,7 +25,7 @@ namespace TictacToe
         {
             var playerSign = (char)player.Sign;
 
-            switch (fieldNumber) 
+            switch (fieldNumber)
             {
                 case 1: Fields[0, 0] = playerSign; break;
                 case 2: Fields[0, 1] = playerSign; break;
@@ -39,14 +39,54 @@ namespace TictacToe
             }
         }
 
-        public void PrintBoard() {
+        public void PrintBoard()
+        {
             Console.WriteLine();
-            Console.WriteLine(" {0} | {1} | {2} ", Fields[0,0], Fields[0,1], Fields[0,2]);
+            Console.WriteLine(" {0} | {1} | {2} ", Fields[0, 0], Fields[0, 1], Fields[0, 2]);
             Console.WriteLine("---|---|---");
             Console.WriteLine(" {0} | {1} | {2} ", Fields[1, 0], Fields[1, 1], Fields[1, 2]);
             Console.WriteLine("---|---|---");
             Console.WriteLine(" {0} | {1} | {2} ", Fields[2, 0], Fields[2, 1], Fields[2, 2]);
             Console.WriteLine();
         }
+
+        public bool GameCompleteChecker()
+        {
+            if (Fields[0,0] == Fields[0, 1] && Fields[0,0] == Fields[0, 2])
+            {
+                return true;
+            }
+            else if (Fields[1, 0] == Fields[1, 1] && Fields[1, 0] == Fields[1, 2])
+            {
+                return true;
+            }
+            else if (Fields[2, 0] == Fields[2, 1] && Fields[2, 0] == Fields[2, 2])
+            {
+                return true;
+            }
+            else if (Fields[0, 0] == Fields[1, 1] && Fields[0, 0] == Fields[2, 2])
+            {
+                return true;
+            }
+            else if (Fields[0, 0] == Fields[1, 0] && Fields[0, 0] == Fields[2, 0])
+            {
+                return true;
+            }
+            else if (Fields[2, 0] == Fields[1, 1] && Fields[2, 0] == Fields[0, 2])
+            {
+                return true;
+            }
+            else if (Fields[0, 0] == Fields[1, 0] && Fields[0, 0] == Fields[2, 0])
+            {
+                return true;
+            }
+            else if (Fields[0, 1] == Fields[1, 1] && Fields[0, 1] == Fields[2, 1])
+            {
+                return true;
+            }
+            return false;
+        }
+
+
     }
 }
