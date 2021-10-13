@@ -9,8 +9,13 @@ namespace TictacToe
             Console.WriteLine("Let's play Tic Tac Toe.");
 
             // TODO: Add payers names
-            Player player1 = new Player("Player 1", 'X');
-            Player player2 = new Player("Player 2", 'O');
+            Console.WriteLine("Enter the name of the first player:");
+            string player1Input = Console.ReadLine();
+            Console.WriteLine("Enter the second player's name:");
+            string player2Input = Console.ReadLine();
+
+            Player player1 = new Player(player1Input, 'X');//Signs.X);
+            Player player2 = new Player(player2Input, 'O');//Signs.O);
 
             Board board = new Board();
             Turn turn = new Turn();

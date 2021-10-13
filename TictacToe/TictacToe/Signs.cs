@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace TictacToe
 {
-    public class SignsClass
+    public enum Signs
     {
-        public enum SIGNS
-        {
-            X = 'X',
-            O = 'O',
-        }
+        X = 'X',
+        O = 'O',
     }
 }
