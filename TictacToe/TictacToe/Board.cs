@@ -21,6 +21,7 @@ namespace TictacToe
                 };
         }
 
+        
         public void SetFields(int fieldNumber, Player player)
         {
             var playerSign = (char)player.Sign;

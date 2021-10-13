@@ -7,23 +7,23 @@ namespace TictacToe
         static void Main(string[] args)
         {
             Console.WriteLine("Let's play Tic Tac Toe.");
-            
+
             // TODO: Add payers names
-            Player player1 = new Player("Player 1", Signs.O);
-            Player player2 = new Player("Player 2", Signs.X);
+            Player player1 = new Player("Player 1", 'X');
+            Player player2 = new Player("Player 2", 'O');
 
             Board board = new Board();
             Turn turn = new Turn();
-            
+
             int turns = 0;
             int maxTurns = 9;
+            bool gameComplete = false;
 
             // Print starting board
             board.PrintBoard();
 
-            bool gameComplete = false;
-            
-            while (turns <= maxTurns && !gameComplete) {
+            while (turns < maxTurns && !gameComplete)
+            {
                 // TODO: exit if someone won faster
 
                 Player player = turns % 2 == 0 ? player1 : player2;
@@ -34,28 +34,18 @@ namespace TictacToe
 
                 turns++;
 
-               gameComplete = board.GameCompleteChecker();
-                //undecided = undecidedChecker(firstLine, secondLine, thirdLine);
+                gameComplete = board.GameCompleteChecker();
 
                 if (gameComplete)
                 {
-                    Console.WriteLine($"Spēle beigusies, {player.Name} uzvarēja!");
+                    Console.WriteLine($"Player {player.Name} has won");
                 }
-                if(turns == maxTurns)
+                else
+                                if (turns == maxTurns)
                 {
-                    Console.WriteLine("Spēle beigusies ar neizšķirtu");
+                    Console.WriteLine("Draw");
                 }
-              //  if (undecided)
-              //  {
-              //      Console.WriteLine();
-              //      Console.WriteLine("Spēle beigusies ar neizšķirtu!");
-              //  }
-
-
-
-
-            };
-
+            }
         }
     }
 }
