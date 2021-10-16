@@ -14,8 +14,8 @@ namespace TictacToe
             Console.WriteLine("Enter the second player's name:");
             string player2Input = Console.ReadLine();
 
-            Player player1 = new Player(player1Input, 'X');//Signs.X);
-            Player player2 = new Player(player2Input, 'O');//Signs.O);
+            Player player1 = new Player(player1Input, Signs.X);
+            Player player2 = new Player(player2Input, Signs.O);
 
             Board board = new Board();
             Turn turn = new Turn();
