@@ -22,6 +22,8 @@ namespace TictacToe
 
             while (turns <= maxTurns) {
                 // TODO: exit if someone won faster
+                // var hasWinner = gameCompleteChecker(board.Fields)
+                // if (hasWinner) break; // un say who won
 
                 Player player = turns % 2 == 0 ? player1 : player2;
 
@@ -31,6 +33,8 @@ namespace TictacToe
 
                 turns++;
             };
+
+            // TODO: winner message
 
         }
     }
