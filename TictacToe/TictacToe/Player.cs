@@ -4,11 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-enum Signs
-{
-    X = 'X',
-    O = 'O',
-}
+
 
 namespace TictacToe
 {

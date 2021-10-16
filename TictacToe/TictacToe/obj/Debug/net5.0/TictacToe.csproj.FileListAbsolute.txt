@@ -1,0 +1,16 @@
+C:\Projects\TictacToe\TictacToe\TictacToe\bin\Debug\net5.0\TictacToe.exe
+C:\Projects\TictacToe\TictacToe\TictacToe\bin\Debug\net5.0\TictacToe.deps.json
+C:\Projects\TictacToe\TictacToe\TictacToe\bin\Debug\net5.0\TictacToe.runtimeconfig.json
+C:\Projects\TictacToe\TictacToe\TictacToe\bin\Debug\net5.0\TictacToe.runtimeconfig.dev.json
+C:\Projects\TictacToe\TictacToe\TictacToe\bin\Debug\net5.0\TictacToe.dll
+C:\Projects\TictacToe\TictacToe\TictacToe\bin\Debug\net5.0\ref\TictacToe.dll
+C:\Projects\TictacToe\TictacToe\TictacToe\bin\Debug\net5.0\TictacToe.pdb
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.csproj.AssemblyReference.cache
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.AssemblyInfoInputs.cache
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.AssemblyInfo.cs
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.csproj.CoreCompileInputs.cache
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.dll
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\ref\TictacToe.dll
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.pdb
+C:\Projects\TictacToe\TictacToe\TictacToe\obj\Debug\net5.0\TictacToe.genruntimeconfig.cache
