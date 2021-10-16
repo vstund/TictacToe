@@ -8,19 +8,27 @@ namespace TictacToe
         {
             Console.WriteLine("Let's play Tic Tac Toe.");
 
-            Player player1 = new Player("Player 1", Signs.O);
-            Player player2 = new Player("Player 2", Signs.X);
+            // TODO: Add payers names
+            Console.WriteLine("Enter the name of the first player:");
+            string player1Input = Console.ReadLine();
+            Console.WriteLine("Enter the second player's name:");
+            string player2Input = Console.ReadLine();
+
+            Player player1 = new Player(player1Input, Signs.X);
+            Player player2 = new Player(player2Input, Signs.O);
 
             Board board = new Board();
             Turn turn = new Turn();
-            
+
             int turns = 0;
             int maxTurns = 9;
+            bool gameComplete = false;
 
             // Print starting board
-            board.PrintBoard(); 
+            board.PrintBoard();
 
-            while (turns <= maxTurns) {
+            while (turns < maxTurns && !gameComplete)
+            {
                 // TODO: exit if someone won faster
                 // var hasWinner = gameCompleteChecker(board.Fields)
                 // if (hasWinner) break; // un say who won
@@ -32,10 +40,19 @@ namespace TictacToe
                 board.PrintBoard();
 
                 turns++;
-            };
 
-            // TODO: winner message
+                gameComplete = board.GameCompleteChecker();
 
+                if (gameComplete)
+                {
+                    Console.WriteLine($"Player {player.Name} has won");
+                }
+                else
+                                if (turns == maxTurns)
+                {
+                    Console.WriteLine("Draw");
+                }
+            }
         }
     }
 }
