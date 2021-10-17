@@ -7,8 +7,6 @@ namespace TictacToe
         static void Main(string[] args)
         {
             Console.WriteLine("Let's play Tic Tac Toe.");
-
-            // TODO: Add payers names
             Console.WriteLine("Enter the name of the first player:");
             string player1Input = Console.ReadLine();
             Console.WriteLine("Enter the second player's name:");
@@ -23,21 +21,36 @@ namespace TictacToe
             int turns = 0;
             int maxTurns = 9;
             bool gameComplete = false;
+            bool isEmpty = true;
 
             // Print starting board
             board.PrintBoard();
 
             while (turns < maxTurns && !gameComplete)
             {
-                // TODO: exit if someone won faster
-
                 Player player = turns % 2 == 0 ? player1 : player2;
 
-                var input = turn.GetInput(player);
-                board.SetFields(input, player);
-                board.PrintBoard();
+                while (isEmpty)
+                {
+                    var input = turn.GetInput(player);
 
+                    isEmpty = board.IsEmptyFieldChecker(input);
+
+                    if (isEmpty)
+                    {
+                        board.SetFields(input, player);
+                        isEmpty = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{input} is alredy used.");
+                        turns--;
+                    }
+                }
+
+                board.PrintBoard();
                 turns++;
+                isEmpty = true;
 
                 gameComplete = board.GameCompleteChecker();
 
@@ -46,7 +59,7 @@ namespace TictacToe
                     Console.WriteLine($"Player {player.Name} has won");
                 }
                 else
-                                if (turns == maxTurns)
+                      if (turns == maxTurns)
                 {
                     Console.WriteLine("Draw");
                 }

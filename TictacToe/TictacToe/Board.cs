@@ -88,6 +88,23 @@ namespace TictacToe
             return false;
         }
 
+        public bool IsEmptyFieldChecker(int fieldNumber)
+        {
+            switch (fieldNumber)
+            {
+                case 1: return(Fields[0, 0].Equals('1'));
+                case 2: return(Fields[0, 1].Equals('2'));
+                case 3: return(Fields[0, 2].Equals('3'));
+                case 4: return(Fields[1, 0].Equals('4'));
+                case 5: return(Fields[1, 1].Equals('5'));
+                case 6: return(Fields[1, 2].Equals('6'));
+                case 7: return(Fields[2, 0].Equals('7'));
+                case 8: return(Fields[2, 1].Equals('8'));
+                case 9: return(Fields[2, 2].Equals('9'));
+                default: return false;
+            }
+        }
+
 
     }
 }

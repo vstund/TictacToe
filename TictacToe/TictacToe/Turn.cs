@@ -8,10 +8,12 @@ namespace TictacToe
 {
     class Turn
     {
+        int input;
+
         public int GetInput(Player player)
         {
             Console.WriteLine($"{player.Name} choose your field! You are playing with '{player.Sign}'.");
-            int input = Convert.ToInt32(Console.ReadLine());
+            input = Convert.ToInt32(Console.ReadLine());
 
             // TODO: validate input must be number in range 1-9
             // Console.WriteLine("Please enter number in range from 1 to 9!");
@@ -21,8 +23,4 @@ namespace TictacToe
             return input;
         }
     }
-
-    
-
-
 }
