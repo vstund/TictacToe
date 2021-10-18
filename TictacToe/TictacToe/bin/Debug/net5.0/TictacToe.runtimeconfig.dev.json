@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\vstun\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\vstun\\.nuget\\packages"
-    ]
-  }
-}
