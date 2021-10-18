@@ -13,7 +13,7 @@ namespace TictacToe
 
         public int GetInput(Player player)
         {
-            Console.WriteLine($"{player.Name} choose your field! You are playing with '{player.Sign}'.");
+            
 
             input = 0;
 
@@ -36,6 +36,7 @@ namespace TictacToe
                         Console.WriteLine("Validate input must be number in range 1-9."); break;
                 }
             }
+
             //input = Convert.ToInt32(Console.ReadLine());
 
             // TODO: validate input must be number in range 1-9
@@ -44,6 +45,10 @@ namespace TictacToe
             // TODO: validate already filled fields
 
             return input;
+        }
+        public void AskForInput(Player player)
+        {
+            Console.WriteLine($"{player.Name} choose your field! You are playing with '{player.Sign}'.");
         }
     }
 }

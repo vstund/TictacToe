@@ -30,15 +30,17 @@ namespace TictacToe
             {
                 Player player = turns % 2 == 0 ? player1 : player2;
 
+                turn.AskForInput(player);
+               
                 while (isEmpty)
                 {
                     var input = turn.GetInput(player);
-
                     isEmpty = board.IsEmptyFieldChecker(input);
 
                     if (isEmpty)
                     {
                         board.SetFields(input, player);
+                        board.PrintBoard();
                         isEmpty = false;
                     }
                     else
@@ -48,7 +50,6 @@ namespace TictacToe
                     }
                 }
 
-                board.PrintBoard();
                 turns++;
                 isEmpty = true;
 
