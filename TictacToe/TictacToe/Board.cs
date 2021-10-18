@@ -88,23 +88,28 @@ namespace TictacToe
             return false;
         }
 
+        /// <summary>
+        /// Checks if target field is empty or not.
+        /// 
+        /// </summary>
         public bool IsEmptyFieldChecker(int fieldNumber)
         {
-            switch (fieldNumber)
+
+            var rowLength = Fields.GetLength(0);
+            var columnLength = Fields.GetLength(1);
+
+            for (int i = 0; i < rowLength; i++)
             {
-                case 1: return(Fields[0, 0].Equals('1'));
-                case 2: return(Fields[0, 1].Equals('2'));
-                case 3: return(Fields[0, 2].Equals('3'));
-                case 4: return(Fields[1, 0].Equals('4'));
-                case 5: return(Fields[1, 1].Equals('5'));
-                case 6: return(Fields[1, 2].Equals('6'));
-                case 7: return(Fields[2, 0].Equals('7'));
-                case 8: return(Fields[2, 1].Equals('8'));
-                case 9: return(Fields[2, 2].Equals('9'));
-                default: return false;
+                for (int j = 0; j < columnLength; j++)
+                {              
+                    var boardFieldNum = (int)(Fields[i, j] - '0'); // some dark magic for type conversion, convert char to int
+                    if (boardFieldNum == fieldNumber)
+                    {
+                        return true;
+                    }
+                }
             }
+            return false;
         }
-
-
     }
 }

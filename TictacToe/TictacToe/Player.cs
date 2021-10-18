@@ -22,8 +22,6 @@ namespace TictacToe
 
         public int MakeAMove()
         {
-            Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
-
             int input = -1;
             var isValid = false;
 
@@ -37,6 +35,11 @@ namespace TictacToe
 
             return input;
             
+        }
+
+        public void AskForInput()
+        {
+            Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
         }
 
         private bool ValidateMove(string input)

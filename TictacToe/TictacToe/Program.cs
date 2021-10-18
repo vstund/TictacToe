@@ -7,6 +7,8 @@ namespace TictacToe
         static void Main(string[] args)
         {
             Console.WriteLine("Let's play Tic Tac Toe.");
+            Console.WriteLine();
+
             Console.WriteLine("Enter the name of the first player:");
             string player1Input = Console.ReadLine();
             Console.WriteLine("Enter the second player's name:");
@@ -28,7 +30,9 @@ namespace TictacToe
             while (turns < maxTurns && !gameComplete)
             {
                 Player player = turns % 2 == 0 ? player1 : player2;
-               
+
+                player.AskForInput();
+
                 while (isEmpty)
                 {
                     int chosenField = player.MakeAMove();
