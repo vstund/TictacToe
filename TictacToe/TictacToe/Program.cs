@@ -21,7 +21,7 @@ namespace TictacToe
             int turns = 0;
             int maxTurns = 9;
             bool gameComplete = false;
-            bool isEmpty = true;
+            board.isEmpty = true;
 
             // Print starting board
             board.PrintBoard();
@@ -32,16 +32,16 @@ namespace TictacToe
 
                 turn.AskForInput(player);
                
-                while (isEmpty)
+                while (board.isEmpty)
                 {
                     var input = turn.GetInput(player);
-                    isEmpty = board.IsEmptyFieldChecker(input);
+                    board.isEmpty = board.IsEmptyFieldChecker(input);
 
-                    if (isEmpty)
+                    if (board.isEmpty)
                     {
                         board.SetFields(input, player);
                         board.PrintBoard();
-                        isEmpty = false;
+                        board.isEmpty = false;
                     }
                     else
                     {
@@ -51,7 +51,7 @@ namespace TictacToe
                 }
 
                 turns++;
-                isEmpty = true;
+                board.isEmpty = true; 
 
                 gameComplete = board.GameCompleteChecker();
 
