@@ -22,17 +22,18 @@ namespace TictacToe
 
         public int MakeAMove()
         {
-            (bool isValid, int inputNum) validation = (false, -1); // Tuple type
+            var input = -1;
+            bool isValid = false;
 
-            while (!validation.isValid)
+            while (!isValid)
             {
                 var inputTxt = Console.ReadLine();
-                validation = ValidateMove(inputTxt);
+                isValid = ValidateMove(inputTxt);
 
-                if (validation.isValid) return validation.inputNum;
+                if (isValid) input = Convert.ToInt32(inputTxt);
             }
 
-            return validation.inputNum;
+            return input;
             
         }
 
@@ -41,25 +42,25 @@ namespace TictacToe
             Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
         }
 
-        private (bool isValid, int inputNum) ValidateMove(string input)
+        private bool ValidateMove(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
             {
                 Console.WriteLine("Field can't be empty! Try again.");
-                return (false, -1);
+                return false;
             }
             if (!int.TryParse(input, out int inputNum))
             { // note the exclamation mark, reverses condition
                 Console.WriteLine("Please enter number in range from 1 to 9!");
-                return (false, -1);
+                return false;
             }
             if (inputNum < 1 || inputNum > 9)
             {
                 Console.WriteLine("Please enter number in range from 1 to 9!");
-                return (false, -1);
+                return false;
             }
 
-            return (true, inputNum);
+            return true;
         }
     }
 }
