@@ -28,9 +28,9 @@ namespace TictacToe
             while (!isValid)
             {
                 var inputTxt = Console.ReadLine();
-                isValid = ValidateMove(inputTxt);
+                isValid = ValidateMove(inputTxt, out int inputNum);
 
-                if (isValid) input = Convert.ToInt32(inputTxt);
+                if (isValid) input = inputNum;
             }
 
             return input;
@@ -42,14 +42,16 @@ namespace TictacToe
             Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
         }
 
-        private bool ValidateMove(string input)
+        private bool ValidateMove(string input, out int inputNum)
         {
+            inputNum = -1;
+
             if (string.IsNullOrWhiteSpace(input))
             {
                 Console.WriteLine("Field can't be empty! Try again.");
                 return false;
             }
-            if (!int.TryParse(input, out int inputNum))
+            if (!int.TryParse(input, out inputNum))
             { // note the exclamation mark, reverses condition
                 Console.WriteLine("Please enter number in range from 1 to 9!");
                 return false;
