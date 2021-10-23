@@ -12,6 +12,8 @@ namespace TictacToe
             Fields = GetStartingFields();
         }
 
+        public bool isEmpty { get; set; } // default must be true
+
         private char[,] GetStartingFields()
         {
             return new char[,] {
