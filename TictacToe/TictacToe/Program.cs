@@ -16,7 +16,6 @@ namespace TictacToe
             Player player2 = new Player(player2Input, Signs.O);
 
             Board board = new Board();
-            Turn turn = new Turn();
 
             int turns = 0;
             int maxTurns = 9;
@@ -30,22 +29,23 @@ namespace TictacToe
             {
                 Player player = turns % 2 == 0 ? player1 : player2;
 
-                turn.AskForInput(player);
+                player.AskForInput();
                
                 while (board.isEmpty)
                 {
-                    var input = turn.GetInput(player);
-                    board.isEmpty = board.IsEmptyFieldChecker(input);
+                    int chosenField = player.MakeAMove();
+
+                    board.isEmpty = board.IsEmptyFieldChecker(chosenField);
 
                     if (board.isEmpty)
                     {
-                        board.SetFields(input, player);
+                        board.SetFields(chosenField, player);
                         board.PrintBoard();
                         board.isEmpty = false;
                     }
                     else
                     {
-                        Console.WriteLine($"{input} is alredy used.");
+                        Console.WriteLine($"{chosenField} is alredy used.");
                         turns--;
                     }
                 }
