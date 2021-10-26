@@ -12,7 +12,6 @@ namespace TictacToe
         public string Name { get; set; }
         public Signs Sign { get; set; }
 
-        void AskForInput();
         int MakeAMove();
     }
 }

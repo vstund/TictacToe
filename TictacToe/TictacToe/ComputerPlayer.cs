@@ -16,13 +16,10 @@ namespace TictacToe
 
         public int MakeAMove()
         {
-             return new Random().Next(1,9);
-        }
+            var chosenField = new Random().Next(1, 9);
+            Console.WriteLine($"{Name} choose field #{chosenField}!");
 
-        public void AskForInput()
-        {
-            // TODO: maybe inside MakeAMove() ?
-            Console.WriteLine($"{Name} choosing field! {Name} is playing with '{Sign}'.");
+            return chosenField;
         }
     }
 }
