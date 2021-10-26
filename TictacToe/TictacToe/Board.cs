@@ -2,7 +2,7 @@
 
 namespace TictacToe
 {
-    class Board
+    public class Board
     {
         private char[,] Fields { get; set; }
 
@@ -12,6 +12,11 @@ namespace TictacToe
             Fields = GetStartingFields();
         }
 
+        //For tests
+        public Board(char[,] testBord)
+        {
+            Fields = testBord;
+        }
         public bool isEmpty { get; set; } // default must be true
 
         private char[,] GetStartingFields()

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TictacToe
 {
-    class Player
+    public class Player
     {
         // This is constructor
         public Player(string name, Signs sign)
