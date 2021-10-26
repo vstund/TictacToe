@@ -12,8 +12,6 @@ namespace TictacToe
             Fields = GetStartingFields();
         }
 
-        public bool isEmpty { get; set; } // default must be true
-
         private char[,] GetStartingFields()
         {
             return new char[,] {
@@ -111,6 +109,9 @@ namespace TictacToe
                     }
                 }
             }
+
+            Console.WriteLine($"Field {fieldNumber} is already used. Try again.");
+
             return false;
         }
     }
