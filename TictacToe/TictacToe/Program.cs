@@ -12,8 +12,10 @@ namespace TictacToe
             Console.WriteLine("Enter the second player's name:");
             string player2Input = Console.ReadLine();
 
-            Player player1 = new Player(player1Input, Signs.X);
-            Player player2 = new Player(player2Input, Signs.O);
+            // TODO: choice human vs human, pc vs human, pc vs pc
+            IPlayer player1 = new HumanPlayer(player1Input, Signs.X);
+            // IPlayer player2 = new HumanPlayer(player2Input, Signs.O);
+            IPlayer player2 = new ComputerPlayer(Signs.O);
 
             Board board = new Board();
 
@@ -27,7 +29,7 @@ namespace TictacToe
 
             while (turns < maxTurns && !gameComplete)
             {
-                Player player = turns % 2 == 0 ? player1 : player2;
+                IPlayer player = turns % 2 == 0 ? player1 : player2;
 
                 player.AskForInput();
                

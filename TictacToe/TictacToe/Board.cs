@@ -24,7 +24,7 @@ namespace TictacToe
         }
 
         
-        public void SetFields(int fieldNumber, Player player)
+        public void SetFields(int fieldNumber, IPlayer player)
         {
             var playerSign = (char)player.Sign;
 
