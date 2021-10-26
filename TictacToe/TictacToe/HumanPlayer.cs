@@ -26,24 +26,31 @@ namespace TictacToe
             while (!isValid)
             {
                 var inputTxt = Console.ReadLine();
-                isValid = ValidateInput(inputTxt);
+                isValid = ValidateInput(inputTxt, out int inputNum);
 
-                if (isValid) input = Convert.ToInt32(inputTxt);
+                if (isValid) input = inputNum;
             }
 
             return input;
             
         }
 
-        private bool ValidateInput(string input)
+        private bool ValidateInput(string input, out int inputNum)
         {
-            if (string.IsNullOrEmpty(input))
+            inputNum = -1;
+
+            if (string.IsNullOrWhiteSpace(input))
             {
                 Console.WriteLine("Field can't be empty! Try again.");
                 return false;
             }
-            if (!int.TryParse(input, out int result))
+            if (!int.TryParse(input, out inputNum))
             { // note the exclamation mark, reverses condition
+                Console.WriteLine("Please enter number in range from 1 to 9!");
+                return false;
+            }
+            if (inputNum < 1 || inputNum > 9)
+            {
                 Console.WriteLine("Please enter number in range from 1 to 9!");
                 return false;
             }
