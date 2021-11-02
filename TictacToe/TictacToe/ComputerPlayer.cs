@@ -14,11 +14,17 @@ namespace TictacToe
         public string Name { get; set; }
         public Signs Sign { get; set; }
 
-        public int MakeAMove()
+        public int MakeAMove(char[,] board)
+        {
+            var move = ThinkAMove(board);
+            Console.WriteLine($"{Name} choose field #{move}!");
+
+            return move;
+        }
+
+        public int ThinkAMove(char[,] board)
         {
             var chosenField = new Random().Next(1, 9);
-            Console.WriteLine($"{Name} choose field #{chosenField}!");
-
             return chosenField;
         }
     }

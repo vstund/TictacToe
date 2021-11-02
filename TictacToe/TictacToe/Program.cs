@@ -29,7 +29,7 @@ namespace TictacToe
 
                 do
                 {
-                    int chosenField = player.MakeAMove();
+                    int chosenField = player.MakeAMove(board.Fields);
                     isEmpty = board.IsEmptyFieldChecker(chosenField);
 
                     if (isEmpty)

@@ -16,10 +16,16 @@ namespace TictacToe
         public string Name { get; set; }
         public Signs Sign { get; set; }
 
-        public int MakeAMove()
+        public int MakeAMove(char[,] board)
         {
             Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
 
+            var move = ThinkAMove(board);
+            return move;
+        }
+
+        public int ThinkAMove(char[,] board)
+        {
             int input = -1;
             var isValid = false;
 
@@ -32,7 +38,7 @@ namespace TictacToe
             }
 
             return input;
-            
+
         }
 
         private bool ValidateInput(string input, out int inputNum)

@@ -4,15 +4,15 @@ namespace TictacToe
 {
     class Board
     {
-        private char[,] Fields { get; set; }
+        public char[,] Fields { get; set; }
 
         // This is constructor
         public Board()
         {
-            Fields = GetStartingFields();
+            Fields = SetStartingFields();
         }
 
-        private char[,] GetStartingFields()
+        private char[,] SetStartingFields()
         {
             return new char[,] {
                     { '1', '2', '3' },
