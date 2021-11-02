@@ -4,15 +4,15 @@ namespace TictacToe
 {
     class Board
     {
-        private char[,] Fields { get; set; }
+        public char[,] Fields { get; set; }
 
         // This is constructor
         public Board()
         {
-            Fields = GetStartingFields();
+            Fields = SetStartingFields();
         }
 
-        private char[,] GetStartingFields()
+        private char[,] SetStartingFields()
         {
             return new char[,] {
                     { '1', '2', '3' },
@@ -22,7 +22,7 @@ namespace TictacToe
         }
 
         
-        public void SetFields(int fieldNumber, Player player)
+        public void SetFields(int fieldNumber, IPlayer player)
         {
             var playerSign = (char)player.Sign;
 

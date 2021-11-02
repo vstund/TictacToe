@@ -6,14 +6,11 @@ namespace TictacToe
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Let's play Tic Tac Toe.");
-            Console.WriteLine("Enter the name of the first player:");
-            string player1Input = Console.ReadLine();
-            Console.WriteLine("Enter the second player's name:");
-            string player2Input = Console.ReadLine();
+            Menu menu = new Menu();
+            menu.InitiateGame();
 
-            Player player1 = new Player(player1Input, Signs.X);
-            Player player2 = new Player(player2Input, Signs.O);
+            IPlayer player1 = menu.Player1;
+            IPlayer player2 = menu.Player2;
 
             Board board = new Board();
 
@@ -26,14 +23,13 @@ namespace TictacToe
 
             while (turns < maxTurns && !gameComplete)
             {
-                Player player = turns % 2 == 0 ? player1 : player2;
-
-                player.AskForInput();
+                IPlayer player = turns % 2 == 0 ? player1 : player2;
+                
                 bool isEmpty = true;
 
                 do
                 {
-                    int chosenField = player.MakeAMove();
+                    int chosenField = player.MakeAMove(board.Fields);
                     isEmpty = board.IsEmptyFieldChecker(chosenField);
 
                     if (isEmpty)

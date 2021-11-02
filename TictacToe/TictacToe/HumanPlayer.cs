@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
 namespace TictacToe
 {
-    class Player
+    class HumanPlayer: IPlayer
     {
         // This is constructor
-        public Player(string name, Signs sign)
+        public HumanPlayer(string name, Signs sign)
         {
             Name = name;
             Sign = sign;
@@ -20,29 +16,32 @@ namespace TictacToe
         public string Name { get; set; }
         public Signs Sign { get; set; }
 
-        public int MakeAMove()
+        public int MakeAMove(char[,] board)
         {
-            var input = -1;
-            bool isValid = false;
+            Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
+
+            var move = ThinkAMove(board);
+            return move;
+        }
+
+        public int ThinkAMove(char[,] board)
+        {
+            int input = -1;
+            var isValid = false;
 
             while (!isValid)
             {
                 var inputTxt = Console.ReadLine();
-                isValid = ValidateMove(inputTxt, out int inputNum);
+                isValid = ValidateInput(inputTxt, out int inputNum);
 
                 if (isValid) input = inputNum;
             }
 
             return input;
-            
+
         }
 
-        public void AskForInput()
-        {
-            Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
-        }
-
-        private bool ValidateMove(string input, out int inputNum)
+        private bool ValidateInput(string input, out int inputNum)
         {
             inputNum = -1;
 
