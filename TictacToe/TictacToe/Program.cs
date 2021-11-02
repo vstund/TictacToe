@@ -7,6 +7,8 @@ namespace TictacToe
         static void Main(string[] args)
         {
             Menu menu = new Menu();
+            menu.InitiateGame();
+
             IPlayer player1 = menu.Player1;
             IPlayer player2 = menu.Player2;
 

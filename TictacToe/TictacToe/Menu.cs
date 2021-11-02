@@ -8,10 +8,6 @@ namespace TictacToe
 {
     class Menu
     {
-        public Menu()
-        {
-            InitiateGame();
-        }
         public IPlayer Player1 { get; set; }
         public IPlayer Player2 { get; set; }
 
