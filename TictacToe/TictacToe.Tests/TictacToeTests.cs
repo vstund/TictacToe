@@ -17,9 +17,7 @@ namespace TictacToe.Tests
 
         public void GameCompleteCheckerThreeValuesOnLineTheSameCharTrue(char[] boardConfiguration1, char[] boardConfiguration2, char[] boardConfiguration3)
         {
-        //    char[,] boardConfiguration = new char[3,3] {  boardConfiguration1 ,  boardConfiguration2 ,  boardConfiguration3  };
-
-            char[,] boardConfiguration = new char[3, 3];
+           char[,] boardConfiguration = new char[3, 3];
 
 
             for (int i = 0; i < 3; i++)
@@ -45,11 +43,9 @@ namespace TictacToe.Tests
         }
 
         [Fact]
-        
+
         public void GameCompleteCheckerAllFieldsEmptyFalse()
         {
-            //    char[,] boardConfiguration = new char[3,3] {  boardConfiguration1 ,  boardConfiguration2 ,  boardConfiguration3  };
-
             char[,] boardConfiguration = new char[,] {
                     { '1', '2', '3' },
                     { '4', '5', '6' },
@@ -62,6 +58,5 @@ namespace TictacToe.Tests
 
             Assert.False(boardResponse);
         }
-
     }
 }
