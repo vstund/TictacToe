@@ -4,7 +4,7 @@
 
 namespace TictacToe
 {
-    class HumanPlayer: IPlayer
+    public class HumanPlayer: IPlayer
     {
         // This is constructor
         public HumanPlayer(string name, Signs sign)

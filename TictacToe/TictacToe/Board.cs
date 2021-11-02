@@ -2,7 +2,7 @@
 
 namespace TictacToe
 {
-    class Board
+    public class Board
     {
         public char[,] Fields { get; set; }
 
@@ -10,6 +10,11 @@ namespace TictacToe
         public Board()
         {
             Fields = SetStartingFields();
+        }
+        //For tests
+        public Board(char[,] testBord)
+        {
+            Fields = testBord;
         }
 
         private char[,] SetStartingFields()
@@ -77,7 +82,7 @@ namespace TictacToe
             {
                 return true;
             }
-            else if (Fields[0, 0] == Fields[1, 0] && Fields[0, 0] == Fields[2, 0])
+            else if (Fields[0, 2] == Fields[1, 2] && Fields[0, 2] == Fields[2, 2])
             {
                 return true;
             }
