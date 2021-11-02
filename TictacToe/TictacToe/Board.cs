@@ -4,22 +4,20 @@ namespace TictacToe
 {
     public class Board
     {
-        private char[,] Fields { get; set; }
+        public char[,] Fields { get; set; }
 
         // This is constructor
         public Board()
         {
-            Fields = GetStartingFields();
+            Fields = SetStartingFields();
         }
-
         //For tests
         public Board(char[,] testBord)
         {
             Fields = testBord;
         }
-        public bool isEmpty { get; set; } // default must be true
 
-        private char[,] GetStartingFields()
+        private char[,] SetStartingFields()
         {
             return new char[,] {
                     { '1', '2', '3' },
@@ -29,7 +27,7 @@ namespace TictacToe
         }
 
         
-        public void SetFields(int fieldNumber, Player player)
+        public void SetFields(int fieldNumber, IPlayer player)
         {
             var playerSign = (char)player.Sign;
 
@@ -116,6 +114,9 @@ namespace TictacToe
                     }
                 }
             }
+
+            Console.WriteLine($"Field {fieldNumber} is already used. Try again.");
+
             return false;
         }
     }

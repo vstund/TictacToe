@@ -6,52 +6,42 @@ namespace TictacToe
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Let's play Tic Tac Toe.");
-            Console.WriteLine("Enter the name of the first player:");
-            string player1Input = Console.ReadLine();
-            Console.WriteLine("Enter the second player's name:");
-            string player2Input = Console.ReadLine();
+            Menu menu = new Menu();
+            menu.InitiateGame();
 
-            Player player1 = new Player(player1Input, Signs.X);
-            Player player2 = new Player(player2Input, Signs.O);
+            IPlayer player1 = menu.Player1;
+            IPlayer player2 = menu.Player2;
 
             Board board = new Board();
 
             int turns = 0;
             int maxTurns = 9;
             bool gameComplete = false;
-            board.isEmpty = true;
 
             // Print starting board
             board.PrintBoard();
 
             while (turns < maxTurns && !gameComplete)
             {
-                Player player = turns % 2 == 0 ? player1 : player2;
+                IPlayer player = turns % 2 == 0 ? player1 : player2;
+                
+                bool isEmpty = true;
 
-                player.AskForInput();
-               
-                while (board.isEmpty)
+                do
                 {
-                    int chosenField = player.MakeAMove();
+                    int chosenField = player.MakeAMove(board.Fields);
+                    isEmpty = board.IsEmptyFieldChecker(chosenField);
 
-                    board.isEmpty = board.IsEmptyFieldChecker(chosenField);
-
-                    if (board.isEmpty)
+                    if (isEmpty)
                     {
                         board.SetFields(chosenField, player);
                         board.PrintBoard();
-                        board.isEmpty = false;
+                        break;
                     }
-                    else
-                    {
-                        Console.WriteLine($"{chosenField} is alredy used.");
-                        turns--;
-                    }
-                }
+
+                } while (!isEmpty);
 
                 turns++;
-                board.isEmpty = true; 
 
                 gameComplete = board.GameCompleteChecker();
 
