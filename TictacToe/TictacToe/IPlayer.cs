@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace TictacToe
 {
-    public interface IPlayer
+    public abstract class IPlayer
     {
 
-        public string Name { get; set; }
-        public Signs Sign { get; set; }
+        public abstract string Name { get; set; }
+        public abstract Signs Sign { get; set; }
 
-        int MakeAMove(char[,] board);
-        int ThinkAMove(char[,] board);
+        public abstract int MakeAMove(char[,] board);
+        public abstract int ThinkAMove(char[,] board);
+
+        public void Horn()
+        {
+            Console.WriteLine("Beep beep");
+        }
     }
 }

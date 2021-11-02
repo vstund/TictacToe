@@ -11,10 +11,10 @@ namespace TictacToe
             Sign = sign;
         }
 
-        public string Name { get; set; }
-        public Signs Sign { get; set; }
+        public override string Name { get; set; }
+        public override Signs Sign { get; set; }
 
-        public int MakeAMove(char[,] board)
+        public override int MakeAMove(char[,] board)
         {
             var move = ThinkAMove(board);
             Console.WriteLine($"{Name} choose field #{move}!");
@@ -22,7 +22,7 @@ namespace TictacToe
             return move;
         }
 
-        public int ThinkAMove(char[,] board)
+        public override int ThinkAMove(char[,] board)
         {
             var chosenField = new Random().Next(1, 9);
             return chosenField;
