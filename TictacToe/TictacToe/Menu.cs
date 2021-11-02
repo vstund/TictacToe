@@ -33,34 +33,34 @@ namespace TictacToe
             switch (Console.ReadLine())
             {
                 case "1":
-                    Player1 = SetHumanPlayer();
-                    Player2 = SetHumanPlayer();
+                    Player1 = SetHumanPlayer(Signs.X);
+                    Player2 = SetHumanPlayer(Signs.O);
                     break;
                 case "2":
-                    Player1 = SetHumanPlayer();
-                    Player2 = SetComputerPlayer();
+                    Player1 = SetHumanPlayer(Signs.X);
+                    Player2 = SetComputerPlayer(Signs.O);
                     break;
                 case "3":
-                    Player1 = SetComputerPlayer();
-                    Player2 = SetComputerPlayer();
+                    Player1 = SetComputerPlayer(Signs.X);
+                    Player2 = SetComputerPlayer(Signs.O);
                     break;
                 default:
                     return;
             }
         }
 
-        private IPlayer SetHumanPlayer() {
+        private IPlayer SetHumanPlayer(Signs sign) {
             // TODO: custom message for each scenario
             // Player 1 name? Player 2 name?
             // Your name?
             Console.WriteLine("Enter the name of the first player:");
             string player1Input = Console.ReadLine();
 
-            return new HumanPlayer(player1Input, Signs.X);
+            return new HumanPlayer(player1Input, sign);
         }
-        private IPlayer SetComputerPlayer()
+        private IPlayer SetComputerPlayer(Signs sign)
         {
-            return new ComputerPlayer(Signs.O);
+            return new ComputerPlayer(sign);
         }
     }
 }
