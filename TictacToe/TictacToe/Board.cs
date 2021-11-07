@@ -26,7 +26,7 @@ namespace TictacToe
                 };
         }
 
-        
+
         public void SetFields(int fieldNumber, IPlayer player)
         {
             var playerSign = (char)player.Sign;
@@ -56,41 +56,44 @@ namespace TictacToe
             Console.WriteLine();
         }
 
-        public bool GameCompleteChecker()
+        public bool GameCompleteHorizontal()
         {
-            if (Fields[0,0] == Fields[0, 1] && Fields[0,0] == Fields[0, 2])
+            for (int i = 0; i < 3; i++)
+            {
+                if (Fields[i, 0] == Fields[i, 1] && Fields[i, 0] == Fields[i, 2])
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool GameCompleteVertical()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (Fields[0, i] == Fields[1, i] && Fields[0, i] == Fields[2, i])
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool GameCompleteDiognal()
+        {
+            if (Fields[0, 0] == Fields[1, 1] && Fields[0, 0] == Fields[2, 2])
             {
                 return true;
             }
-            else if (Fields[1, 0] == Fields[1, 1] && Fields[1, 0] == Fields[1, 2])
-            {
-                return true;
-            }
-            else if (Fields[2, 0] == Fields[2, 1] && Fields[2, 0] == Fields[2, 2])
-            {
-                return true;
-            }
-            else if (Fields[0, 0] == Fields[1, 1] && Fields[0, 0] == Fields[2, 2])
-            {
-                return true;
-            }
-            else if (Fields[0, 0] == Fields[1, 0] && Fields[0, 0] == Fields[2, 0])
-            {
-                return true;
-            }
-            else if (Fields[2, 0] == Fields[1, 1] && Fields[2, 0] == Fields[0, 2])
-            {
-                return true;
-            }
-            else if (Fields[0, 2] == Fields[1, 2] && Fields[0, 2] == Fields[2, 2])
-            {
-                return true;
-            }
-            else if (Fields[0, 1] == Fields[1, 1] && Fields[0, 1] == Fields[2, 1])
+            else if (Fields[0, 2] == Fields[1, 1] && Fields[0, 2] == Fields[2, 0])
             {
                 return true;
             }
             return false;
+        }
+
+        public bool GameCompleteChecker()
+        {
+            return GameCompleteHorizontal() || GameCompleteVertical() || GameCompleteDiognal();
         }
 
         /// <summary>
@@ -106,7 +109,7 @@ namespace TictacToe
             for (int i = 0; i < rowLength; i++)
             {
                 for (int j = 0; j < columnLength; j++)
-                {              
+                {
                     var boardFieldNum = (int)(Fields[i, j] - '0'); // some dark magic for type conversion, convert char to int
                     if (boardFieldNum == fieldNumber)
                     {
