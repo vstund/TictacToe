@@ -110,7 +110,8 @@ namespace TictacToe
             {
                 for (int j = 0; j < columnLength; j++)
                 {
-                    var boardFieldNum = (int)(Fields[i, j] - '0'); // some dark magic for type conversion, convert char to int
+                    var sign = Fields[i, j]; // this is 'char'
+                    var boardFieldNum = (int)(sign - '0'); // some dark magic for type conversion, convert char to int
                     if (boardFieldNum == fieldNumber)
                     {
                         return true;
