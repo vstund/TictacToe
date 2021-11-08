@@ -13,10 +13,10 @@ namespace TictacToe
             Sign = sign;
         }
 
-        public string Name { get; set; }
-        public Signs Sign { get; set; }
+        public override string Name { get; set; }
+        public override Signs Sign { get; set; }
 
-        public int MakeAMove(char[,] board)
+        public override int MakeAMove(char[,] board)
         {
             Console.WriteLine($"{Name} choose your field! You are playing with '{Sign}'.");
 
@@ -24,7 +24,7 @@ namespace TictacToe
             return move;
         }
 
-        public int ThinkAMove(char[,] board)
+        public override int ThinkAMove(char[,] board)
         {
             int input = -1;
             var isValid = false;
