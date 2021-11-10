@@ -25,9 +25,30 @@ export const useBoard = (onComplete?: () => void) => {
     getBoard();
   }, []);
 
+  const submit = useCallback(async (field: number, playerId = 1) => {
+    setLoading(true);
+
+    await fetch(`/api/board?field=1&playerId=1`, {
+      method: "POST",
+    })
+      .then((response) => response.text())
+      .then((result) => {
+        console.log("result", result);
+        // setBoard(result);
+        getBoard();
+        if (onComplete) onComplete();
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setLoading(false);
+      });
+  }, []);
+
   return {
     board,
     loading,
     refetch: getBoard,
+    update: submit,
   };
 };
