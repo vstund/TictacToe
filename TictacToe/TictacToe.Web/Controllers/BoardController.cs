@@ -69,10 +69,10 @@ namespace TictacToe.Web.Controllers
             var tt = await _context.BoardContext.FirstAsync();
             tt.Fields[0, 0] = 'X';
 
-            _context.Entry(tt).State = EntityState.Modified;
+           // _context.Entry(tt).State = EntityState.Modified;
 
-
-            await _context.SaveChangesAsync();
+           _context.BoardContext.Update(tt);
+           await _context.SaveChangesAsync();
           
 
             return Ok("success");
