@@ -13,6 +13,6 @@ namespace TictacToe.Web.Models
         {
         }
 
-        public DbSet<TictacToe.Board> BoardContext { get; set; } = null!;
+        public DbSet<TictacToe.Board> BoardContext { get; set; }
     }
 }
