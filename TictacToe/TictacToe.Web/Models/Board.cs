@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace TictacToe.Web.Models
 {
-    /**
-     * Not used for now. But could be single source of truth in future.
-     */
     public class Board
     {
-       
-        public int Id { get; set; }
-        [NotMapped]
-        public char[,] Fields { get; set; }
+        public int BoardId { get; set; }
+        // public List<Field> Fields { get; set; }
+
     }
 }

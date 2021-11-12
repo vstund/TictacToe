@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Container } from 'reactstrap';
-import { NavMenu } from './NavMenu';
+import React, { Component } from "react";
+import { Container } from "reactstrap";
+import { NavMenu } from "./NavMenu";
 
 export class Layout extends Component {
   static displayName = Layout.name;
 
-  render () {
+  render() {
     return (
-      <div>
+      <div className="cc">
         <NavMenu />
-        <Container>
+        <Container style={{ width: "100%", height: "100%" }}>
           {this.props.children}
         </Container>
       </div>

@@ -23,7 +23,10 @@ namespace TictacToe.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase(databaseName: "TictacToe"));
+            // services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase(databaseName: "TictacToe.Web"));
+            services.AddDbContext<ApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+
+            services.AddScoped<IFieldRepository, FieldRepository>();
 
             services.AddControllersWithViews();
 

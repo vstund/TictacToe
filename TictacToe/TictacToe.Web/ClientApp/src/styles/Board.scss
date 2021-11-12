@@ -1,0 +1,15 @@
+@import "./variables.scss";
+
+.board {
+  width: 50%;
+  height: 50%;
+  border: 1px solid lightblue;
+  min-height: 200px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    flex: 0 0 33.333333%;
+  }
+}
