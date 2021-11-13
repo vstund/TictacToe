@@ -4,7 +4,7 @@
 
 namespace TictacToe
 {
-    public class HumanPlayer: IPlayer
+    public class HumanPlayer : IPlayer
     {
         // This is constructor
         public HumanPlayer(string name, Signs sign)
@@ -26,42 +26,29 @@ namespace TictacToe
 
         public override int ThinkAMove(char[,] board)
         {
-            int input = -1;
-            var isValid = false;
+            var inputTxt = Console.ReadLine();
+            int userNumber;
 
-            while (!isValid)
+            try
             {
-                var inputTxt = Console.ReadLine();
-                isValid = ValidateInput(inputTxt, out int inputNum);
+                userNumber = int.Parse(inputTxt);
 
-                if (isValid) input = inputNum;
+                if (userNumber > 9 || userNumber < 1)
+                {
+                    throw new NumberGreaterOrEqualToOneAndLessOrEqualNine("Please enter number in range from 1 to 9!");
+                }
             }
-
-            return input;
-
-        }
-
-        private bool ValidateInput(string input, out int inputNum)
-        {
-            inputNum = -1;
-
-            if (string.IsNullOrWhiteSpace(input))
+            catch (NumberGreaterOrEqualToOneAndLessOrEqualNine error)
             {
-                Console.WriteLine("Field can't be empty! Try again.");
-                return false;
+                Console.WriteLine(error.Message);
+                userNumber = ThinkAMove(board);
             }
-            if (!int.TryParse(input, out inputNum))
-            { // note the exclamation mark, reverses condition
-                Console.WriteLine("Please enter number in range from 1 to 9!");
-                return false;
-            }
-            if (inputNum < 1 || inputNum > 9)
+            catch (FormatException)
             {
-                Console.WriteLine("Please enter number in range from 1 to 9!");
-                return false;
+                Console.WriteLine("Allowed only numbers. Try again!");
+                userNumber = ThinkAMove(board);
             }
-
-            return true;
+            return userNumber;
         }
     }
 }
