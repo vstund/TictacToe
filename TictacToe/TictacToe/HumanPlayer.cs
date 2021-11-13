@@ -40,10 +40,10 @@ namespace TictacToe
             }
             catch (NumberGreaterOrEqualToOneAndLessOrEqualNine error)
             {
-                Console.WriteLine($"{error.Message}");
+                Console.WriteLine(error.Message);
                 userNumber = ThinkAMove(board);
             }
-            catch (FormatException formatException)
+            catch (FormatException)
             {
                 Console.WriteLine("Allowed only numbers. Try again!");
                 userNumber = ThinkAMove(board);
