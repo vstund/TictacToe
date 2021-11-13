@@ -45,11 +45,20 @@ namespace TictacToe
             }
         }
 
-        private IPlayer SetHumanPlayer(Signs sign) {
+        private IPlayer SetHumanPlayer(Signs sign)
+        {
             // TODO: custom message for each scenario
             // Player 1 name? Player 2 name?
             // Your name?
-            Console.WriteLine("Enter the name of the first player:");
+            if (Player1 == null)
+            {
+                Console.WriteLine("Enter the name of the first player:");
+            }
+            else
+            {
+                Console.WriteLine("Enter the name of the second player:");
+            }
+
             string player1Input = Console.ReadLine();
 
             return new HumanPlayer(player1Input, sign);
