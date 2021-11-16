@@ -8,16 +8,10 @@ namespace TictacToe
 {
     public abstract class IPlayer
     {
-
         public abstract string Name { get; set; }
         public abstract Signs Sign { get; set; }
 
         public abstract int MakeAMove(char[,] board);
         public abstract int ThinkAMove(char[,] board);
-
-        public void Horn()
-        {
-            Console.WriteLine("Beep beep");
-        }
     }
 }
