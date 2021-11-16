@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace TictacToe
 {
@@ -25,6 +26,8 @@ namespace TictacToe
 
         public override int ThinkAMove(char[,] board)
         {
+            Console.WriteLine($"{Name} is thinking! :)");
+            Thread.Sleep(3000);
             var chosenField = new Random().Next(1, 9);
             return chosenField;
         }
