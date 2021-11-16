@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TictacToe
 {
     public class Board
     {
+        public int Id { get; set; }
+        [NotMapped]
         public char[,] Fields { get; set; }
 
         // This is constructor
