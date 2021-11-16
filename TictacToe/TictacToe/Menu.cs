@@ -24,7 +24,6 @@ namespace TictacToe
             Console.Write("\r\nSelect an option: ");
 
             // TODO: output who is playing with whom
-            // TODO: computer names
 
             switch (Console.ReadLine())
             {
@@ -45,11 +44,10 @@ namespace TictacToe
             }
         }
 
-        private IPlayer SetHumanPlayer(Signs sign) {
-            // TODO: custom message for each scenario
-            // Player 1 name? Player 2 name?
-            // Your name?
-            Console.WriteLine("Enter the name of the first player:");
+        private IPlayer SetHumanPlayer(Signs sign)
+        {         
+            Console.WriteLine(Player1 == null ? "Enter the name of the first player:" : "Enter the name of the second player:");
+           
             string player1Input = Console.ReadLine();
 
             return new HumanPlayer(player1Input, sign);

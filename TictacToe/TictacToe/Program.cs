@@ -12,8 +12,6 @@ namespace TictacToe
             IPlayer player1 = menu.Player1;
             IPlayer player2 = menu.Player2;
 
-            player2.Horn();
-
             Board board = new Board();
 
             int turns = 0;
